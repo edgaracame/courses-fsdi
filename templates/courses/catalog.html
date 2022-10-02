@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+
+{% block title %}Courses{% endblock title %}
+
+{% block content %}
+<div class="banner">
+    <div class="welcome-text">
+        <p class="banner-welcome">Course Catalog</p>
+        <p class="banner-text">These are all the available courses</p>
+    </div>
+</div>
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Academy</a>
+      <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="course_catalog.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Courses
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="course_catalog.html"><i class="fa-solid fa-sm fa-terminal"></i> &nbsp;Programming</a></li>
+              <li><a class="dropdown-item" href="course_catalog.html"><i class="fa-solid fa-sm fa-brush"></i> &nbsp;Digital Art</a></li>
+              <li><a class="dropdown-item" href="course_catalog.html"><i class="fa-solid fa-sm fa-cube"></i> &nbsp;3D Modeling</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="account.html">Log In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<section class="catalog_content">
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <div class="list-group filter">
+                    <button type="button" class="list-group-item list-group-item-action active" aria-current="true" style="background-color: var(--blue)">Filters</button>
+                    <button class="btn text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
+                        <i class="fa-solid fa-fire"></i> Popular Courses
+                      </button>
+                    <div class="collapse" id="collapseExample1">
+                        <div class="card card-body">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    1-A
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    1-B
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    1-C
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
+                        <i class="fa-solid fa-bell"></i> Newest Courses
+                      </button>
+                    <div class="collapse" id="collapseExample2">
+                        <div class="card card-body">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    2-A
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    2-B
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    2-C
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample3">
+                        <i class="fa-solid fa-star"></i> Best Rated
+                      </button>
+                    <div class="collapse" id="collapseExample3">
+                        <div class="card card-body">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    3-A
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    3-B
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    3-C
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-9">
+                <div class="row">
+                    <div class="catalog-cards col-4">
+                        {% for course in courses_catalog %}
+                            <p>{{ course.title }}</p>
+                            <p>{{ course.category }}</p>
+                        {% endfor %}
+                        <div class="card course_card" style="width: 23rem;">
+                            <img src="{{ course.image.url }}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h4 class="card-title">{{ course.title }}</h4>
+                              <p class="card-text">{{ course.category }}</p>
+                                <div class="row" >
+                                    <div class="col-12">
+                                        <div class="text-button">
+                                            <a href="course_details.html" class="btn btn-success" style="background-color: var(--green); border-width: 0;">Learn More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
