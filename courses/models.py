@@ -16,8 +16,8 @@ class Course(models.Model):
     category = models.CharField(
         max_length=15, choices=CATEGORY_CHOICES, default='programming'
     )
-    file = models.FileField(upload_to='documents/', default=None)
-    image = models.ImageField(upload_to='images/', default=None)
+    file = models.FileField(upload_to='documents/')
+    image = models.ImageField(upload_to='images/')
 
     def __str__(self):
         return self.title

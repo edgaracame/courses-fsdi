@@ -129,24 +129,22 @@
             <div class="col-9">
                 <div class="row">
                     <div class="catalog-cards col-4">
-                        {% for course in courses_catalog %}
-                            <p>{{ course.title }}</p>
-                            <p>{{ course.category }}</p>
-                        {% endfor %}
-                        <div class="card course_card" style="width: 23rem;">
-                            <img src="{{ course.image.url }}" class="card-img-top" alt="...">
-                            <div class="card-body">
-                              <h4 class="card-title">{{ course.title }}</h4>
-                              <p class="card-text">{{ course.category }}</p>
-                                <div class="row" >
-                                    <div class="col-12">
-                                        <div class="text-button">
-                                            <a href="course_details.html" class="btn btn-success" style="background-color: var(--green); border-width: 0;">Learn More</a>
+                        {% for course in object_list %}
+                            <div class="card course_card" style="width: 23rem;">
+                                <img src="{{ course.image.url }}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                <h4 class="card-title">{{ course.title }}</h4>
+                                <p class="card-text">{{ course.category }}</p>
+                                    <div class="row" >
+                                        <div class="col-12">
+                                            <div class="text-button">
+                                                <a href="{% url 'course_detail' course.id %}" class="btn btn-success" style="background-color: var(--green); border-width: 0;">Learn More</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>

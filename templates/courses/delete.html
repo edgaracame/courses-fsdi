@@ -5,15 +5,16 @@
 {% block content %}
     <div class="h-100 w-100 d-flex align-items-center justify-content-center container course-form">
         <div>
-            <p class="title-form">Add a Course</p>
+            <p class="title-form">Delete a Course</p>
         </div>
             <form method="POST" enctype="multipart/form-data">
                 <div class="body-form">
                     {% csrf_token %}
                     <div class="form-group">
                         {{ form.as_p }}
+                        <p>Are your sure you want to delete "{{ course.title }}"</p>
                     </div>
-                    <button class="form-submit">Create</button>
+                    <button class="form-submit">Delete</button>
             </form>
         </div>
     </div>
