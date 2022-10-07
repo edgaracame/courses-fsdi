@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Courses{% endblock title %}
+{% block title %}Courses - Digital Art{% endblock title %}
 
 {% block content %}
 <div class="banner">
@@ -58,20 +58,22 @@
                 <div class="row">
                     <div class="catalog-cards">
                         {% for course in object_list %}
-                            <div class="card course_card" style="width: 23rem;">
-                                <img src="{{ course.image.url }}" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                <h4 class="card-title">{{ course.title }}</h4>
-                                <p class="card-text">{{ course.category }}</p>
-                                    <div class="row" >
-                                        <div class="col-12">
-                                            <div class="text-button">
-                                                <a href="{% url 'course_detail' course.id %}" class="btn btn-success" style="background-color: var(--green); border-width: 0;">Learn More</a>
+                            {% if course.category == "digital art" %}
+                                <div class="card course_card" style="width: 23rem;">
+                                    <img src="{{ course.image.url }}" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                    <h4 class="card-title">{{ course.title }}</h4>
+                                    <p class="card-text">{{ course.category }}</p>
+                                        <div class="row" >
+                                            <div class="col-12">
+                                                <div class="text-button">
+                                                    <a href="{% url 'course_detail' course.id %}" class="btn btn-success" style="background-color: var(--green); border-width: 0;">Learn More</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            {% endif %}
                         {% endfor %}
                     </div>
                 </div>

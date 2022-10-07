@@ -46,3 +46,18 @@ class CourseDeleteView(DeleteView):
 
     def test_func(self):
         obj = self.get_object()
+
+
+class CourseProgrammingView(ListView):
+    template_name = "courses/cat_programming.html"
+    model = Course
+
+
+class CourseDigitalArtView(ListView):
+    template_name = "courses/cat_digitalart.html"
+    model = Course
+
+
+class CourseModelingView(ListView):
+    template_name = "courses/cat_modeling.html"
+    model = Course

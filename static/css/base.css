@@ -182,14 +182,6 @@ body {
     font-size: 1.2rem;
   }
   
-  .intro-buttons button {
-    background-color: var(--green);
-    color: white;
-    border: none;
-    width: 10em;
-    height: 2.5em;
-  }
-  
   .intro-buttons a {
     text-decoration: none;
     color: black;
@@ -199,6 +191,19 @@ body {
   
   .intro-buttons a:hover {
     text-decoration: underline;
+  }
+
+  .intro-buttons .intro-courses {
+    background-color: var(--green);
+    color: white;
+    border: none;
+    width: 10em;
+    height: 2.5em;
+    padding: 1em 2em;
+  }
+
+  .intro-buttons .intro-courses:hover {
+    text-decoration: none;
   }
   
   @media (min-width: 960px){
@@ -230,7 +235,7 @@ body {
       margin-top: 2em;
     }
   
-    .intro-buttons button{
+    .intro-buttons .intro-courses{
       font-size: 1.2rem;
     }
   
@@ -578,4 +583,18 @@ body {
     .form-submit{
         font-size: 1.2rem;
     }
+}
+
+.filter-button{
+  text-align: left;
+  border: none;
+  background-color: transparent;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+.filter-button:hover{
+  font-weight: 700;
+  color: black;
 }

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Courses{% endblock title %}
+{% block title %}Courses - Programming{% endblock title %}
 
 {% block content %}
 <div class="banner">
@@ -38,40 +38,42 @@
 <section class="catalog_content">
     <div class="container">
         <div class="row">
-            <div class="col-3">
-                <div class="list-group filter">
-                    <button type="button" class="list-group-item list-group-item-action active" aria-current="true" style="background-color: var(--blue)">Filters</button>
-                    <button class="btn text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
-                        <i class="fa-solid fa-fire"></i> Categories
-                      </button>
-                    <div class="collapse" id="collapseExample1">
-                        <div class="card card-body">
-                            <a class="filter-button" href="{% url 'cat_programming' %}">Programming</a>
-                            <a class="filter-button" href="{% url 'cat_digitalart' %}">Digital Art</a>
-                            <a class="filter-button" href="{% url 'cat_modeling' %}">Modeling</a>
-                        </div>
+          <div class="col-3">
+            <div class="list-group filter">
+                <button type="button" class="list-group-item list-group-item-action active" aria-current="true" style="background-color: var(--blue)">Filters</button>
+                <button class="btn text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
+                    <i class="fa-solid fa-fire"></i> Categories
+                  </button>
+                <div class="collapse" id="collapseExample1">
+                    <div class="card card-body">
+                        <a class="filter-button" href="{% url 'cat_programming' %}">Programming</a>
+                        <a class="filter-button" href="{% url 'cat_digitalart' %}">Digital Art</a>
+                        <a class="filter-button" href="{% url 'cat_modeling' %}">Modeling</a>
                     </div>
                 </div>
             </div>
+        </div>
 
             <div class="col-9">
                 <div class="row">
                     <div class="catalog-cards">
                         {% for course in object_list %}
-                            <div class="card course_card" style="width: 23rem;">
-                                <img src="{{ course.image.url }}" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                <h4 class="card-title">{{ course.title }}</h4>
-                                <p class="card-text">{{ course.category }}</p>
-                                    <div class="row" >
-                                        <div class="col-12">
-                                            <div class="text-button">
-                                                <a href="{% url 'course_detail' course.id %}" class="btn btn-success" style="background-color: var(--green); border-width: 0;">Learn More</a>
+                            {% if course.category == "programming" %}
+                                <div class="card course_card" style="width: 23rem;">
+                                    <img src="{{ course.image.url }}" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                    <h4 class="card-title">{{ course.title }}</h4>
+                                    <p class="card-text">{{ course.category }}</p>
+                                        <div class="row" >
+                                            <div class="col-12">
+                                                <div class="text-button">
+                                                    <a href="{% url 'course_detail' course.id %}" class="btn btn-success" style="background-color: var(--green); border-width: 0;">Learn More</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            {% endif %}
                         {% endfor %}
                     </div>
                 </div>
