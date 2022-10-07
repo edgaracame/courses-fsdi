@@ -4,66 +4,83 @@
 
 {% block content %}
 <div class="banner">
-    <div class="welcome-text">
-      <p class="banner-welcome">Welcome!</p>
-      <p class="banner-text">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-        Necessitatibus eum velit ratione assumenda, ipsum non?
-      </p>
-    </div>
-    <a class="banner-button" href="account.html">Log In</a>
+  <div class="welcome-text">
+    {% if request.user.is_authenticated %}
+    <p class="banner-welcome">Welcome, {{ request.user.username }}!</p>
+    {% else %}
+    <p class="banner-welcome">Welcome!</p>
+    {% endif %}
+    <p class="banner-text">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+      Necessitatibus eum velit ratione assumenda, ipsum non?
+    </p>
   </div>
+  {% if request.user.is_authenticated %}
+  <a class="banner-button" href="{% url 'logout' %}">Log Out</a>
+  {% else %}
+  <a class="banner-button" href="{% url 'login' %}">Log In</a>
+  {% endif %}
+</div>
 
-  <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'home' %}">Academy</a>
-      <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="course_catalog.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Courses
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="course_catalog.html"><i class="fa-solid fa-sm fa-terminal"></i> &nbsp;Programming</a></li>
-              <li><a class="dropdown-item" href="course_catalog.html"><i class="fa-solid fa-sm fa-brush"></i> &nbsp;Digital Art</a></li>
-              <li><a class="dropdown-item" href="course_catalog.html"><i class="fa-solid fa-sm fa-cube"></i> &nbsp;3D Modeling</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="account.html">Log In</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'about' %}">About</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <div class="intro">
-    <img src="https://www.andorratelecom.ad/documents/33347/2720756/image-default-2.gif" alt="" />
-    <div class="intro-text">
-      <p class="intro-text-introduction">Lorem ipsum dolor sit amet.</p>
-      <p class="intro-text-description">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis
-        in, neque maiores cum quidem dolorum fuga ad sit delectus eos magni
-        obcaecati facere, officiis iste tempore explicabo voluptatum expedita?
-        Doloremque!
-      </p>
-
-      <div class="intro-buttons">
-        <button>Courses</button>
-        <a href="#">
-          Top Courses <i class="fa-solid fa-sm fa-chevron-right"> </i
-        ></a>
-      </div>
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}">Academy</a>
+    <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="course_catalog.html" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Courses
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="course_catalog.html"><i class="fa-solid fa-sm fa-terminal"></i>
+                &nbsp;Programming</a></li>
+            <li><a class="dropdown-item" href="course_catalog.html"><i class="fa-solid fa-sm fa-brush"></i>
+                &nbsp;Digital Art</a></li>
+            <li><a class="dropdown-item" href="course_catalog.html"><i class="fa-solid fa-sm fa-cube"></i> &nbsp;3D
+                Modeling</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          {% if request.user.is_authenticated %}
+          <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+          {% else %}
+          <a class="nav-link" href="{% url 'login' %}">Log In</a>
+          {% endif %}
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'about' %}">About</a>
+        </li>
+      </ul>
     </div>
   </div>
+</nav>
+
+<div class="intro">
+  <img src="https://www.andorratelecom.ad/documents/33347/2720756/image-default-2.gif" alt="" />
+  <div class="intro-text">
+    <p class="intro-text-introduction">Lorem ipsum dolor sit amet.</p>
+    <p class="intro-text-description">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis
+      in, neque maiores cum quidem dolorum fuga ad sit delectus eos magni
+      obcaecati facere, officiis iste tempore explicabo voluptatum expedita?
+      Doloremque!
+    </p>
+
+    <div class="intro-buttons">
+      <button>Courses</button>
+      <a href="#">
+        Top Courses <i class="fa-solid fa-sm fa-chevron-right"> </i></a>
+    </div>
+  </div>
+</div>
 
 {% endblock content %}
