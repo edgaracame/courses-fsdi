@@ -6,28 +6,10 @@
 <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
     <li class="breadcrumb-item"><a href="{% url 'courses_catalog' %}">Courses</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Course Example</li>
+    <li class="breadcrumb-item active" aria-current="page">{{ course.title }}</li>
   </ol>
-  
           <div class="h-100 w-100 d-flex align-items-center justify-content-center course_details">
             <div class="container">
-              <ul class="nav nav-tabs course-tab">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">General</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Details</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Program</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Evaluation</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Opinions</a>
-                </li>
-              </ul>
               <div class="course-container">
                 <div class="course-media">
                   <div class="course-img">
@@ -43,6 +25,9 @@
                     <p>
                       {{ course.body }}
                     </p>
+                  </div>
+                  <div>
+                    <embed class="course-file" src="{{ course.file.url }}" type="application/pdf" width="500px" height="500px">
                   </div>
                 </div>
               </div>

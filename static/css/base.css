@@ -475,12 +475,13 @@ body {
     }
 
     .course-img img{
-      max-width: 35rem;
+      max-width: 75rem;
     }
 
     .thumbnail-imgs{
       display: flex;
-      justify-content: space-between;align-self: center;
+      justify-content: space-between;
+      align-self: center;
     }
 
     .thumbnail-imgs img{
@@ -504,6 +505,7 @@ body {
     }
     
     .course-info p {
+      width: 500px;
       text-align: justify;
       font-size: 1.2rem;
     }
@@ -597,4 +599,8 @@ body {
 .filter-button:hover{
   font-weight: 700;
   color: black;
+}
+
+.course-file{
+  border: rebeccapurple;
 }
