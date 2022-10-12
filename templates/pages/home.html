@@ -6,7 +6,7 @@
 <div class="banner">
   <div class="welcome-text">
     {% if request.user.is_authenticated %}
-    <p class="banner-welcome">Welcome, {{ request.user.username }}!</p>
+    <p class="banner-welcome">Welcome, {{request.user.username}}</p>
     {% else %}
     <p class="banner-welcome">Welcome!</p>
     {% endif %}
@@ -49,11 +49,25 @@
                 Modeling</a></li>
           </ul>
         </li>
-        <li class="nav-item">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Account
+          </a>
           {% if request.user.is_authenticated %}
-          <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href=""><i class="fa-solid fa-user"></i>
+                &nbsp;My Profile</a></li>
+            <li><a class="dropdown-item" href="{% url 'signup' %}"><i class="fa-solid fa-user-slash"></i></i> &nbsp;Log
+                Out</a></li>
+          </ul>
           {% else %}
-          <a class="nav-link" href="{% url 'login' %}">Log In</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'login' %}"><i class="fa-solid fa-user-check"></i></i>
+                &nbsp;Log In</a></li>
+            <li><a class="dropdown-item" href="{% url 'signup' %}"><i class="fa-solid fa-user-plus"></i> &nbsp;Sign
+                Up</a></li>
+          </ul>
           {% endif %}
         </li>
         <li class="nav-item">

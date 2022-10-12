@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Account{% endblock title %}
+
+{% block content %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Account</li>
+    </ol>
+</nav>
+
+<div class="h-100 d-flex align-items-center justify-content-center account">
+    <img src="https://www.andorratelecom.ad/documents/33347/2720756/image-default-2.gif" alt="">
+    <p>Start your journey!</p>
+    <div class="account-buttons">
+        <a href="login.html">Log In</a>
+        <a href="signup.html">Sign Up</a>
+    </div>
+</div>
+{% endblock content %}
