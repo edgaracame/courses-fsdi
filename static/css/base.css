@@ -30,6 +30,7 @@ body {
     color: var(--blue);
     text-align: center;
     padding: 10px 0;
+    font-size: 1.2rem;
   }
 
 .breadcrumb{
@@ -351,7 +352,7 @@ body {
   
   .course_card p {
     color: gray;
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-size: 0.8rem;
   }
 
@@ -418,6 +419,7 @@ body {
     text-align: center;
     color: gray;
     font-style: italic;
+    text-transform: capitalize;
   }
   
   .course-info p {
@@ -449,7 +451,7 @@ body {
     
     .course_card p {
       color: gray;
-      text-transform: uppercase;
+      text-transform: capitalize;
       font-size: 1.1rem;
     }
 
@@ -587,6 +589,11 @@ body {
     }
 }
 
+.filter-main{
+  font-size: 1.2rem;
+  margin: 0;
+}
+
 .filter-button{
   text-align: left;
   border: none;
@@ -594,6 +601,7 @@ body {
   text-decoration: none;
   color: black;
   cursor: pointer;
+  font-size: 1.2rem;
 }
 
 .filter-button:hover{
@@ -601,6 +609,25 @@ body {
   color: black;
 }
 
-.course-file{
-  border: rebeccapurple;
+.add-section{
+  margin: 1.6em 0 0 0;
+  text-align: center;
+}
+
+.add-course{
+  background-color: var(--green);
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: white;
+  border: none;
+  padding: 1em 2em;
+  width: 10em;
+  height: 2.5em;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.add-course:hover{
+  color: white;
+  text-decoration: none;
 }

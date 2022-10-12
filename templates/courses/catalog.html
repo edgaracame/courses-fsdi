@@ -39,16 +39,19 @@
     <div class="container">
         <div class="row">
             <div class="col-3">
+              <div class="add-section">
+                <a href="{% url 'course_new' %}" class="add-course"><i class="fa-solid fa-plus"></i>&nbsp; Add a Course</a>
+              </div>
                 <div class="list-group filter">
-                    <button type="button" class="list-group-item list-group-item-action active" aria-current="true" style="background-color: var(--blue)">Filters</button>
+                    <button type="button" class="list-group-item list-group-item-action active" aria-current="true" style="background-color: var(--blue)"><p class="filter-main">Filters</p></button>
                     <button class="btn text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
-                        <i class="fa-solid fa-fire"></i> Categories
+                      <p class="filter-main"><i class="fa-solid fa-list"></i></i> Categories</p>
                       </button>
                     <div class="collapse" id="collapseExample1">
                         <div class="card card-body">
-                            <a class="filter-button" href="{% url 'cat_programming' %}">Programming</a>
-                            <a class="filter-button" href="{% url 'cat_digitalart' %}">Digital Art</a>
-                            <a class="filter-button" href="{% url 'cat_modeling' %}">Modeling</a>
+                            <a class="filter-button" href="{% url 'cat_programming' %}"><i class="fa-solid fa-code"></i>&nbsp; Programming</a>
+                            <a class="filter-button" href="{% url 'cat_digitalart' %}"><i class="fa-solid fa-brush"></i>&nbsp; Digital Art</a>
+                            <a class="filter-button" href="{% url 'cat_modeling' %}"><i class="fa-solid fa-cube"></i>&nbsp; Modeling</a>
                         </div>
                     </div>
                 </div>
@@ -67,6 +70,8 @@
                                         <div class="col-12">
                                             <div class="text-button">
                                                 <a href="{% url 'course_detail' course.id %}" class="btn btn-success" style="background-color: var(--green); border-width: 0;">Learn More</a>
+                                                <a href="{% url 'course_edit' course.id %}" style="background-color: none; color:var(--blue); border-width: 0; margin:0.5em"><i class="fa-solid fa-pen-to-square fa-xl"></i></a>
+                                                <a href="{% url 'course_delete' course.id %}" style="background-color: none; color:red; border-width: 0;"><i class="fa-solid fa-trash fa-xl"></i></a>
                                             </div>
                                         </div>
                                     </div>
