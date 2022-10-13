@@ -12,9 +12,6 @@
             <li class="breadcrumb-item active" aria-current="page">Log In</li>
         </ol>
     </nav>
-
-
-
     <div class="h-100 w-100 d-flex align-items-center justify-content-center login">
         <p>Welcome!</p>
         <form method="POST" class="login-fields">
@@ -28,6 +25,9 @@
                 <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-key"></i></span>
                 <input name="password" type="password" class="form-control" placeholder="Password" aria-label="Username"
                     aria-describedby="addon-wrapping">
+            </div>
+            <div class="password-reset text-end">
+                <a href="{% url 'reset_password' %}">Forgot your password?</a>
             </div>
             <div class="login">
                 <input type="submit" value="Log In" class="btn btn-primary login-button">
