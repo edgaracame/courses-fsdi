@@ -477,7 +477,7 @@ body {
     }
 
     .course-img img{
-      max-width: 75rem;
+      max-width: 50rem;
     }
 
     .thumbnail-imgs{
@@ -630,4 +630,37 @@ body {
 .add-course:hover{
   color: white;
   text-decoration: none;
+}
+
+.evaluation-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  margin: 0 1em;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.evaluation-button:hover {
+  text-decoration: none;
+}
+
+.evaluation-button {
+  background-color: var(--green);
+  color: white;
+  border: none;
+  width: 10em;
+  height: 2.5em;
+  padding: 1em 2em;
+}
+
+.evaluation-button:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.evaluation-instructions{
+  margin-top: 2.5rem;
 }

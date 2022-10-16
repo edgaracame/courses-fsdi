@@ -11,12 +11,15 @@
           <div class="h-100 w-100 d-flex align-items-center justify-content-center course_details">
             <div class="container">
               <div class="course-container">
-                <div class="course-media">
-                  <div class="course-img">
-                    <img src="{{ course.image.url }}">
-                  </div>
+                <div>
+                  <embed class="course-file" src="{{ course.file.url }}" type="application/pdf" width="650px" height="700px">
                 </div>
                 <div class="course-info">
+                  <div class="course-media">
+                    <div class="course-img">
+                      <img src="{{ course.image.url }}">
+                    </div>
+                  </div>
                   <div class="course-info-title">
                     <h2>{{ course.title }} <span style="font-weight:400;">- {{ course.subtitle }}</span></h2>
                     <h5>{{ course.category}}</h5>
@@ -26,8 +29,12 @@
                       {{ course.body }}
                     </p>
                   </div>
-                  <div>
-                    <embed class="course-file" src="{{ course.file.url }}" type="application/pdf" width="500px" height="500px">
+                  <div class="form-group evaluation-instructions">
+                    <p>
+                      <label>Evaluation:</label>
+                      <input type="file">
+                    </p>
+                    <a class="evaluation-button" href="{% url 'course_evaluation' course.id %}">Upload</a>
                   </div>
                 </div>
               </div>

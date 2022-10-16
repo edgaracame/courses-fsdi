@@ -1,4 +1,4 @@
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, TemplateView
 from django.views.generic.edit import (
     CreateView,
     UpdateView,
@@ -60,4 +60,9 @@ class CourseDigitalArtView(ListView):
 
 class CourseModelingView(ListView):
     template_name = "courses/cat_modeling.html"
+    model = Course
+
+
+class EvaluationDetailView(DetailView):
+    template_name = "courses/evaluation.html"
     model = Course
