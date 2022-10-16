@@ -1,5 +1,6 @@
 from django.views.generic.edit import CreateView
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
+from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
 from django.shortcuts import render, redirect
 from .forms import RegisterUserForm
@@ -31,3 +32,10 @@ def login(request):
 
 def logout(request):
     return render(request, 'registration/logout.html', {})
+
+class PasswordsChangeView(PasswordChangeView):
+    form_class = PasswordChangeForm
+    success_url = reverse_lazy("password_success")
+
+def password_success(request):
+    return render(request, 'registration/password_success.html', {})
