@@ -182,6 +182,10 @@ body {
   .intro-text-description {
     font-size: 1.2rem;
   }
+
+  .intro-buttons{
+    margin: 2.5rem 0 2rem 0;
+  }
   
   .intro-buttons a {
     text-decoration: none;
@@ -402,8 +406,12 @@ body {
     margin-top: 1.5rem;
   }
 
+  .course-media{
+    text-align: center;
+  }
+
   .course-img img{
-    max-width: 100%;
+    display: none;
   }
 
   .thumbnail-imgs {
@@ -477,6 +485,7 @@ body {
     }
 
     .course-img img{
+      display: flex;
       max-width: 50rem;
     }
 
@@ -553,7 +562,7 @@ body {
   form > input {
     margin: 0.5em;
     height: 3em;
-    width: 5em;
+    width: 100%;
     text-align: center;
     background-color: transparent;
     border: 1px solid gray;
@@ -590,7 +599,7 @@ body {
 }
 
 .filter-main{
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin: 0;
 }
 
@@ -601,7 +610,7 @@ body {
   text-decoration: none;
   color: black;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .filter-button:hover{
@@ -616,11 +625,11 @@ body {
 
 .add-course{
   background-color: var(--green);
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   text-decoration: none;
   color: white;
   border: none;
-  padding: 1em 2em;
+  padding: 0.5em 1em;
   width: 10em;
   height: 2.5em;
   cursor: pointer;
@@ -639,7 +648,6 @@ body {
   text-decoration: none;
   color: black;
   margin: 0 1em;
-  font-weight: 700;
   font-size: 1.2rem;
 }
 
@@ -663,4 +671,61 @@ body {
 
 .evaluation-instructions{
   margin-top: 2.5rem;
+}
+
+.course-file{
+  width: 400px;
+  height: 400px;
+}
+
+@media (min-width: 960px){
+  .filter-main{
+    font-size: 1.2rem;
+  }
+
+  .filter-button{
+    font-size: 1.2rem;
+  }
+
+  .add-course{
+    font-size: 1.1rem;
+    padding: 1em 2em;
+  }
+  
+  .evaluation-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    margin: 0 1em;
+    font-size: 1.2rem;
+  }
+  
+  .evaluation-button:hover {
+    text-decoration: none;
+  }
+  
+  .evaluation-button {
+    background-color: var(--green);
+    color: white;
+    border: none;
+    width: 10em;
+    height: 2.5em;
+    padding: 1em 2em;
+  }
+  
+  .evaluation-button:hover {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .evaluation-instructions{
+    margin-top: 2.5rem;
+  }
+
+  .course-file{
+    width: 650px;
+    height: 700px;
+  }
 }
