@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ course.title }}{% endblock title %}
+
+{% block content %}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'courses_catalog' %}">Courses</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'course_detail' course.id %}">{{ course.title }}</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Evaluation</li>
+</ol>
+
+<div class="h-100 w-100 d-flex align-items-center justify-content-center container course-form">
+    <div>
+        <p class="title-form">Thanks!</p>
+    </div>
+        <form method="POST" enctype="multipart/form-data">
+            <div class="body-form">
+                <div class="form-group">
+                    <p>Your evaluation for "{{ course.title }}" is going to be reviewed, please wait!</p>
+                </div>
+                <a class="evaluation-button" href="{% url 'course_detail' course.id %}" style="margin-top: 1rem;">Go back</a>
+        </form>
+    </div>
+</div>
+{% endblock content %}

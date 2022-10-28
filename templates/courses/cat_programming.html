@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Courses{% endblock title %}
+{% block title %}Courses - Programming{% endblock title %}
 
 {% block content %}
 <div class="banner">
@@ -38,30 +38,31 @@
 <section class="catalog_content">
     <div class="container">
         <div class="row">
-            <div class="col-3">
-              <div class="add-section">
-                <a href="{% url 'course_new' %}" class="add-course"><i class="fa-solid fa-plus"></i>&nbsp; Add a Course</a>
-              </div>
-                <div class="list-group filter">
-                    <button type="button" class="list-group-item list-group-item-action active" aria-current="true" style="background-color: var(--blue)"><p class="filter-main">Filters</p></button>
-                    <button class="btn text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
-                      <p class="filter-main"><i class="fa-solid fa-list"></i></i> Categories</p>
-                      </button>
-                    <div class="collapse" id="collapseExample1">
-                        <div class="card card-body">
-                            <a class="filter-button" href="{% url 'cat_programming' %}"><i class="fa-solid fa-code"></i>&nbsp; Programming</a>
-                            <a class="filter-button" href="{% url 'cat_digitalart' %}"><i class="fa-solid fa-brush"></i>&nbsp; Digital Art</a>
-                            <a class="filter-button" href="{% url 'cat_modeling' %}"><i class="fa-solid fa-cube"></i>&nbsp; Modeling</a>
-                        </div>
-                    </div>
-                </div>
+          <div class="col-3">
+            <div class="add-section">
+              <a href="{% url 'course_new' %}" class="add-course"><i class="fa-solid fa-plus"></i>&nbsp; Add a Course</a>
             </div>
+              <div class="list-group filter">
+                  <button type="button" class="list-group-item list-group-item-action active" aria-current="true" style="background-color: var(--blue)"><p class="filter-main">Filters</p></button>
+                  <button class="btn text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
+                    <p class="filter-main"><i class="fa-solid fa-list"></i></i> Categories</p>
+                    </button>
+                  <div class="collapse" id="collapseExample1">
+                      <div class="card card-body">
+                          <a class="filter-button" href="{% url 'cat_programming' %}"><i class="fa-solid fa-code"></i>&nbsp; Programming</a>
+                          <a class="filter-button" href="{% url 'cat_digitalart' %}"><i class="fa-solid fa-brush"></i>&nbsp; Digital Art</a>
+                          <a class="filter-button" href="{% url 'cat_modeling' %}"><i class="fa-solid fa-cube"></i>&nbsp; Modeling</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
 
             <div class="col-9">
                 <div class="row">
                     <div class="catalog-cards">
                         {% for course in object_list %}
-                            <div class="card course_card" style="width: 23rem;">
+                            {% if course.category == "programming" %}
+                              <div class="card course_card" style="width: 23rem;">
                                 <img src="{{ course.image.url }}" class="card-img-top" alt="...">
                                 <div class="card-body">
                                 <h4 class="card-title">{{ course.title }}</h4>
@@ -77,6 +78,7 @@
                                     </div>
                                 </div>
                             </div>
+                            {% endif %}
                         {% endfor %}
                     </div>
                 </div>

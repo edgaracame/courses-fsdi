@@ -10,5 +10,5 @@ class CourseForm(forms.Form):
         subtitle = forms.CharField(max_length=256)
         body = forms.TextInput()
         category = forms.Select(choices=CATEGORY_CHOICES)
-        file = forms.FileField(upload_to='documents/', default=None)
-        image = forms.ImageField(upload_to='images/', default=None)
+        file = forms.FileField(upload_to='documents/')
+        image = forms.ImageField(upload_to='images/')
