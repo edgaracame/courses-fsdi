@@ -1,12 +1,12 @@
-#Distyce, a classroom like no other.
+# Distyce, a classroom like no other.
 
-##What is it?
+## What is it?
 
 Distyce is an academy in which its users can learn through different files whenever they want and upload an evaluation to get their certificate, do you want to acquire more knowledge and skills? Distyce is your classroom.
 
-##Functions:
+## Functions:
 
-###What can I do?
+### What can I do?
 
 Users can:
 - Sign up
@@ -33,14 +33,14 @@ Admins can:
 - Edit a course
 - Delete a course
 
-###What will I be able to do?
+### What will I be able to do?
 
 In future patches more functions will be added to Distyce!
 - Students will have a profile to check their progress
 - Evaluations will be sent to our teachers mails
 - More files extensions will be used in courses!
 
-##Technologies:
+## Technologies:
 
 - Python
 - Django
@@ -55,7 +55,7 @@ In future patches more functions will be added to Distyce!
 - Fontawesome
 - Gmail SMTP Server
 
-##Instructions:
+## Instructions:
 
 1. Enter the following instructions to update your system:
 ```
@@ -110,5 +110,4 @@ python3 manage.py createsuperuser
 python3 manage.py runserver
 ```
 
-12. Open your browser and search for the following address:
-[Distyce](127.0.0.1:8000/)
+12. Open your browser and search for the following address: 127.0.0.1:8000/
