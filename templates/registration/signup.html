@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %} Sign up{% endblock title %}
+
+{% block content %}
+
+{% if form.errors %}
+<div class="alert alert-warning" role="alert">
+    {{ messages }}
+</div>
+
+
+{% endif %}
+
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+            <li class="breadcrumb-item"><a href="">Account</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Sign Up</li>
+        </ol>
+    </nav>
+
+    <div class="h-100 w-100 d-flex align-items-center justify-content-center signup">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Random-house2.jpg/245px-Random-house2.jpg"
+            alt="">
+        <div class="signup-form">
+            <p>Be our classmate!</p>
+            <form class="signup-fields" method="POST" action="{% url 'signup' %}">
+                {% csrf_token %}
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping"><i class="fa-regular fa-envelope"></i></span>
+                    {{ form.email }}
+                </div>
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-at"></i></span>
+                    {{ form.username }}
+                </div>
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-key"></i></span>
+                    {{ form.password1 }}
+                </div>
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-lock"></i></span>
+                    {{ form.password2 }}
+                </div>
+                <input type="submit" value="Sign Up" class="btn btn-primary signup-form-button">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

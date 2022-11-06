@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'accounts',
 ]
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -126,7 +128,22 @@ STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR.joinpath('media')
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+LOGIN_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "home"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#SMTP Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'dystauth2022@gmail.com'
+EMAIL_HOST_PASSWORD = 'pzhirtzbuxdymgit'
+DEFAULT_FROM_EMAIL = 'Dyst Team <noreply@dystauth.com>'

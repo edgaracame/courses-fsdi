@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ course.title }}{% endblock title %}
+
+{% block content %}
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+  <li class="breadcrumb-item"><a href="{% url 'courses_catalog' %}">Courses</a></li>
+  <li class="breadcrumb-item active" aria-current="page">{{ course.title }}</li>
+</ol>
+<div class="h-100 w-100 d-flex align-items-center justify-content-center course_details">
+  <div class="container">
+    <div class="course-container">
+      <div>
+        <embed class="course-file" src="{{ course.file.url }}" type="application/pdf">
+      </div>
+      <div class="course-info">
+        <div class="course-media">
+          <div class="course-img">
+            <img src="{{ course.image.url }}">
+          </div>
+        </div>
+        <div class="course-info-title">
+          <h2>{{ course.title }} <span style="font-weight:400;">- {{ course.subtitle }}</span></h2>
+          <h5>{{ course.category}}</h5>
+        </div>
+        <div>
+          <p>
+            {{ course.body }}
+          </p>
+        </div>
+        {% if user.is_authenticated %}
+        {% if request.user.is_superuser %}
+        <div class="form-group crud-instructions">
+          <a class="evaluation-button" style="background-color:var(--blue)"
+            href="{% url 'course_edit' course.id %}">Edit</a>
+          <a class="evaluation-button" style="background-color:red"
+            href="{% url 'course_delete' course.id %}">Delete</a>
+        </div>
+        {% else %}
+        <div class="form-group evaluation-instructions">
+          <p>
+            <label>Evaluation:</label>
+            <input type="file">
+          </p>
+          <a class="evaluation-button" href="{% url 'course_evaluation' course.id %}">Upload</a>
+        </div>
+        {% endif %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
