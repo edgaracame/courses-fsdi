@@ -45,8 +45,9 @@
         {% endif %}
         {% endif %}
       </div>
-      <div>
+      <div style="display: flex; flex-direction: column; justify-content:center; align-items: center;">
         <embed class="course-file" src="{{ course.file.url }}" type="application/pdf">
+        <a class="evaluation-button" style="background-color: var(--blue);" href="{{ course.file.url }}" download>Download</a>
       </div>
     </div>
   </div>
