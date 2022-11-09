@@ -3,19 +3,33 @@
 {% block title %}Create Course{% endblock title %}
 
 {% block content %}
-    <div class="h-100 w-100 d-flex align-items-center justify-content-center container course-form">
-        <div>
-            <p class="title-form">Delete a Course</p>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'courses_catalog' %}">Courses</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Delete</li>
+</ol>
+    {% if user.is_superuser %}
+        <div class="h-100 w-100 d-flex align-items-center justify-content-center container course-form">
+            <div>
+                <p class="title-form">Delete a Course</p>
+            </div>
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="body-form">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            {{ form.as_p }}
+                            <p>Are your sure you want to delete "{{ course.title }}"</p>
+                        </div>
+                        <button class="form-submit">Delete</button>
+                </form>
+            </div>
         </div>
-            <form method="POST" enctype="multipart/form-data">
-                <div class="body-form">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        {{ form.as_p }}
-                        <p>Are your sure you want to delete "{{ course.title }}"</p>
-                    </div>
-                    <button class="form-submit">Delete</button>
-            </form>
+
+    {% else %}
+        <div class="h-100 w-100 d-flex align-items-center justify-content-center container course-form">
+            <div>
+                <p class="title-form" style="color:red">Sorry! You aren't supposed to be here!</p>
+            </div>
         </div>
-    </div>
+    {% endif %}
 {% endblock content %}

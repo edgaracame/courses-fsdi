@@ -1,27 +1,22 @@
 {% extends 'base.html' %}
 
-{% block title %} Sign up{% endblock title %}
+{% block title %}Sign up{% endblock title %}
 
 {% block content %}
 
 {% if form.errors %}
-<div class="alert alert-warning" role="alert">
+<div class="h-100 w-100 d-flex align-items-center justify-content-center alert alert-warning" role="alert">
     {{ messages }}
 </div>
 
 
 {% endif %}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Sign Up</li>
+</ol>
 
-<div class="container">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-            <li class="breadcrumb-item"><a href="">Account</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Sign Up</li>
-        </ol>
-    </nav>
-
-    <div class="h-100 w-100 d-flex align-items-center justify-content-center signup">
+    <div class="h-100 w-100 d-flex align-items-center justify-content-center container signup">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Random-house2.jpg/245px-Random-house2.jpg"
             alt="">
         <div class="signup-form">
@@ -48,5 +43,4 @@
             </form>
         </div>
     </div>
-</div>
 {% endblock content %}

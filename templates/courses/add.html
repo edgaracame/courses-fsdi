@@ -3,6 +3,12 @@
 {% block title %}Create Course{% endblock title %}
 
 {% block content %}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'courses_catalog' %}">Courses</a></li>
+    <li class="breadcrumb-item active" aria-current="page">New</li>
+</ol>
+    {% if user.is_superuser %}
     <div class="h-100 w-100 d-flex align-items-center justify-content-center container course-form">
         <div>
             <p class="title-form">Add a Course</p>
@@ -17,4 +23,12 @@
             </form>
         </div>
     </div>
+
+    {% else %}
+    <div class="h-100 w-100 d-flex align-items-center justify-content-center container course-form">
+        <div>
+            <p class="title-form" style="color:red">Sorry! You aren't supposed to be here!</p>
+        </div>
+    </div>
+{% endif %}
 {% endblock content %}

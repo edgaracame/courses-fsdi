@@ -11,9 +11,6 @@
 <div class="h-100 w-100 d-flex align-items-center justify-content-center course_details">
   <div class="container">
     <div class="course-container">
-      <div>
-        <embed class="course-file" src="{{ course.file.url }}" type="application/pdf">
-      </div>
       <div class="course-info">
         <div class="course-media">
           <div class="course-img">
@@ -40,13 +37,16 @@
         {% else %}
         <div class="form-group evaluation-instructions">
           <p>
-            <label>Evaluation:</label>
+            <label>Assignment:</label>
             <input type="file">
           </p>
           <a class="evaluation-button" href="{% url 'course_evaluation' course.id %}">Upload</a>
         </div>
         {% endif %}
         {% endif %}
+      </div>
+      <div>
+        <embed class="course-file" src="{{ course.file.url }}" type="application/pdf">
       </div>
     </div>
   </div>
