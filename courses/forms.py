@@ -3,12 +3,15 @@ from django import forms
 from courses.models import CATEGORY_CHOICES, Course
 
 
-class CourseForm(forms.Form):
+class CourseForm(forms.ModelForm):
     class Meta:
         model = Course
-        title = forms.CharField(max_length=256)
-        subtitle = forms.CharField(max_length=256)
-        body = forms.TextInput()
-        category = forms.Select(choices=CATEGORY_CHOICES)
-        file = forms.FileField(upload_to='documents/')
-        image = forms.ImageField(upload_to='images/')
+        fields = ('title', 'subtitle', 'body', 'category', 'file', 'image')
+        widgets = {
+            'title': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Title'}),
+            'subtitle': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Subtitle'}),
+            'body': forms.Textarea(attrs={'class':'form-control', 'placeholder':'Content'}),
+            'category': forms.Select(choices=CATEGORY_CHOICES, attrs={'class':'form-select'}),
+        }
+
+

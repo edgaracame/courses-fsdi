@@ -10,7 +10,7 @@ from django.contrib.auth.mixins import (
 )
 from django.urls import reverse_lazy
 from .models import Course
-
+from .forms import CourseForm
 
 class CourseListView(ListView):
     template_name = "courses/catalog.html"
@@ -25,14 +25,16 @@ class CourseDetailView(DetailView):
 class CourseCreateView(CreateView):
     template_name = "courses/add.html"
     model = Course
-    fields = ["title", "subtitle", "body", "category", "file", "image"]
+    form_class = CourseForm
+    #fields = ["title", "subtitle", "body", "category", "file", "image"]
     success_url = reverse_lazy("courses_catalog")
 
 
 class CourseUpdateView(UpdateView):
     template_name = "courses/edit.html"
     model = Course
-    fields = ["title", "subtitle", "body", "category", "file", "image"]
+    form_class = CourseForm
+    #fields = ["title", "subtitle", "body", "category", "file", "image"]
     success_url = reverse_lazy("courses_catalog")
 
     def test_func(self):

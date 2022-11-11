@@ -8,27 +8,50 @@
     <li class="breadcrumb-item"><a href="{% url 'courses_catalog' %}">Courses</a></li>
     <li class="breadcrumb-item active" aria-current="page">New</li>
 </ol>
-    {% if user.is_superuser %}
-    <div class="h-100 w-100 d-flex align-items-center justify-content-center container course-form">
-        <div>
-            <p class="title-form">Add a Course</p>
-        </div>
+{% if user.is_superuser %}
+<div class="h-100 w-100 d-flex align-items-center justify-content-center container course-form">
+    <div>
+        <p class="title-form">Add a Course</p>
+    </div>
+    <div class="body-form">
+        <div class="form-group">
             <form method="POST" enctype="multipart/form-data">
-                <div class="body-form">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        {{ form.as_p }}
-                    </div>
+                {% csrf_token %}
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-a"></i></span>
+                    {{ form.title }}
+                </div>
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-b"></i></span>
+                    {{ form.subtitle }}
+                </div>
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-file-pen"></i></span>
+                    {{ form.body }}
+                </div>
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-list"></i></span>
+                    {{ form.category }}
+                </div>
+                <div class="input-group flex-nowrap">
+                    {{ form.file }}
+                </div>
+                <div class="input-group flex-nowrap">
+                    {{ form.image }}
+                </div>
+                <div class="text-center">
                     <button class="form-submit">Create</button>
+                </div>
             </form>
         </div>
     </div>
+</div>
 
-    {% else %}
-    <div class="h-100 w-100 d-flex align-items-center justify-content-center container course-form">
-        <div>
-            <p class="title-form" style="color:red">Sorry! You aren't supposed to be here!</p>
-        </div>
+{% else %}
+<div class="h-100 w-100 d-flex align-items-center justify-content-center container course-form">
+    <div>
+        <p class="title-form" style="color:red">Sorry! You aren't supposed to be here!</p>
     </div>
+</div>
 {% endif %}
 {% endblock content %}
