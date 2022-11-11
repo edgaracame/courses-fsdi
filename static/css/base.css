@@ -1498,3 +1498,17 @@ p>input[type="file"] {
     height: 650px;
   }
 }
+
+.contact-intro{
+  text-align: center;
+}
+
+.contact-title{
+  font-size: 3.5em;
+  font-weight: 700;
+  color: var(--blue);
+}
+
+.contact-text{
+  font-size: 1.5em;
+}

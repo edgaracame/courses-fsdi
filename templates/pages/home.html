@@ -11,8 +11,7 @@
     <p class="banner-welcome">Welcome!</p>
     {% endif %}
     <p class="banner-text">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-      Necessitatibus eum velit ratione assumenda, ipsum non?
+      This is your opportunity to learn about anything you never thought you would!
     </p>
   </div>
   {% if request.user.is_authenticated %}
@@ -59,29 +58,51 @@
           </ul>
           {% endif %}
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'about' %}">About</a>
-        </li>
       </ul>
     </div>
   </div>
 </nav>
 
 <div class="intro">
-  <img src="https://www.andorratelecom.ad/documents/33347/2720756/image-default-2.gif" alt="" />
+  <img src="http://static1.squarespace.com/static/53aadf1de4b0a0a817640cca/58de71662994caa7c7bc193b/5e9da35d056db926f39d7076/1588605262340/online+courses+CourseMatch+Coursera.jpg?format=1500w" alt="" />
   <div class="intro-text">
-    <p class="intro-text-introduction">Lorem ipsum dolor sit amet.</p>
+    <p class="intro-text-introduction">Join our special classroom!</p>
     <p class="intro-text-description">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis
-      in, neque maiores cum quidem dolorum fuga ad sit delectus eos magni
-      obcaecati facere, officiis iste tempore explicabo voluptatum expedita?
-      Doloremque!
+      Distyce offers you the chance to start working in your knowledge and skills! With the help of our teachers and your effort you'll become an expert in the topics we work on guiding you step by step, don't lose this opportunity.
     </p>
 
     <div class="intro-buttons">
       <a class="intro-courses" href="{% url 'courses_catalog' %}">Courses</a>
       <a href="{% url 'courses_catalog' %}">
         Top Courses <i class="fa-solid fa-sm fa-chevron-right"> </i></a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="contact-intro">
+    <p class="contact-title">Contact us!</p>
+    <p class="contact-text">We would love to know your opinion.</p>
+  </div>
+  
+  <div class="about">
+    <div class="contact">
+      <div class="contact-phone">
+        <i class="fa-solid fa-phone"></i>
+        <p>Give us a call!</p>
+        <p>111-222-333</p>
+      </div>
+      <div class="contact-mail">
+        <i class="fa-solid fa-envelope"></i>
+        <p>Send us an email!</p>
+        <p>courses@mail.com</p>
+      </div>
+    </div>
+  
+    <div class="map">
+      <div class="map-responsive">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13428.662314308696!2d-117.1549581!3d32.7082276!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb1759c2aecbcc473!2sSan%20Diego%20Global%20Knowledge%20University!5e0!3m2!1ses-419!2smx!4v1660408616013!5m2!1ses-419!2smx" width="400" height="250" frameborder="0" allowfullscreen></iframe>
+    </div>
     </div>
   </div>
 </div>

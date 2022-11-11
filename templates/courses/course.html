@@ -10,6 +10,7 @@
 </ol>
 <div class="h-100 w-100 d-flex align-items-center justify-content-center course_details">
   <div class="container">
+    {% if user.is_authenticated %}
     <div class="course-container">
       <div class="course-info">
         <div class="course-media">
@@ -26,7 +27,6 @@
             {{ course.body }}
           </p>
         </div>
-        {% if user.is_authenticated %}
         {% if request.user.is_superuser %}
         <div class="form-group crud-instructions">
           <a class="evaluation-button" style="background-color:var(--blue)"
@@ -43,13 +43,36 @@
           <a class="evaluation-button" href="{% url 'course_evaluation' course.id %}">Upload</a>
         </div>
         {% endif %}
-        {% endif %}
       </div>
       <div style="display: flex; flex-direction: column; justify-content:center; align-items: center;">
         <embed class="course-file" src="{{ course.file.url }}" type="application/pdf">
-        <a class="evaluation-button" style="background-color: var(--blue);" href="{{ course.file.url }}" download>Download</a>
+        <a class="evaluation-button" style="background-color: var(--blue); margin-top: 25px;" href="{{ course.file.url }}" download>Download</a>
       </div>
     </div>
+    {% else %}
+    <div class="course-container">
+      <div class="course-info" style="width: 40%; display: flex; flex-direction: column; justify-content:center; align-items:center;">
+        <div class="course-media">
+          <div class="course-img">
+            <img src="{{ course.image.url }}">
+          </div>
+        </div>
+        <div class="course-info-title">
+          <h2>{{ course.title }} <span style="font-weight:400;">- {{ course.subtitle }}</span></h2>
+          <h5>{{ course.category}}</h5>
+        </div>
+        <div>
+          <p style="width: 100%;">
+            {{ course.body }}
+          </p>
+        </div>
+        <div class="form-group crud-instructions">
+          <a class="evaluation-button" style="background-color:var(--green)"
+            href="{% url 'login' %}">Log In</a>
+        </div>
+      </div>
+    </div>
+    {% endif %}
   </div>
 </div>
 {% endblock content %}

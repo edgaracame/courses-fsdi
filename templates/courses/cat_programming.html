@@ -11,37 +11,55 @@
 </div>
 
 <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'home' %}">Academy</a>
-      <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{% url 'courses_catalog' %}">Courses</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="account.html">Log In</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'about' %}">About</a>
-          </li>
-        </ul>
-      </div>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}">Distyce</a>
+    <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{% url 'courses_catalog' %}">Courses</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Account
+          </a>
+          {% if request.user.is_authenticated %}
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'password' %}"><i class="fa-solid fa-user"></i>
+                &nbsp;Password</a></li>
+            <li><a class="dropdown-item" href="{% url 'logout' %}"><i class="fa-solid fa-user-slash"></i></i> &nbsp;Log
+                Out</a></li>
+          </ul>
+          {% else %}
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'login' %}"><i class="fa-solid fa-user-check"></i></i>
+                &nbsp;Log In</a></li>
+            <li><a class="dropdown-item" href="{% url 'signup' %}"><i class="fa-solid fa-user-plus"></i> &nbsp;Sign
+                Up</a></li>
+          </ul>
+          {% endif %}
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
 
 <section class="catalog_content">
     <div class="container">
         <div class="row">
           <div class="col-3">
+            {% if request.user.is_superuser %}
             <div class="add-section">
               <a href="{% url 'course_new' %}" class="add-course"><i class="fa-solid fa-plus"></i>&nbsp; Add a Course</a>
             </div>
+            {% endif %}
               <div class="list-group filter">
                   <button type="button" class="list-group-item list-group-item-action active" aria-current="true" style="background-color: var(--blue)"><p class="filter-main">Filters</p></button>
                   <button class="btn text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
@@ -71,8 +89,10 @@
                                         <div class="col-12">
                                             <div class="text-button">
                                                 <a href="{% url 'course_detail' course.id %}" class="btn btn-success" style="background-color: var(--green); border-width: 0;">Learn More</a>
+                                                {% if request.user.is_superuser %}
                                                 <a href="{% url 'course_edit' course.id %}" style="background-color: none; color:var(--blue); border-width: 0; margin:0.5em"><i class="fa-solid fa-pen-to-square fa-xl"></i></a>
                                                 <a href="{% url 'course_delete' course.id %}" style="background-color: none; color:red; border-width: 0;"><i class="fa-solid fa-trash fa-xl"></i></a>
+                                                {% endif %}
                                             </div>
                                         </div>
                                     </div>

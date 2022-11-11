@@ -33,11 +33,17 @@
                     <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-list"></i></span>
                     {{ form.category }}
                 </div>
-                <div class="input-group flex-nowrap">
-                    {{ form.file }}
+                <div class="input-group flex-nowrap" style="display:flex; flex-direction:column; justify-content: center; align-items: center; margin: 25px 0 50px 0;">
+                    <div>
+                        <p>File:</p>
+                        {{ form.file }}
+                    </div>
                 </div>
-                <div class="input-group flex-nowrap">
-                    {{ form.image }}
+                <div class="input-group flex-nowrap" style="display:flex; flex-direction:column; justify-content: center; align-items: center; margin-bottom: 25px;">
+                    <div>
+                        <p>Image:</p>
+                        {{ form.image }}
+                    </div>
                 </div>
                 <div class="text-center">
                     <button class="form-submit">Save</button>
